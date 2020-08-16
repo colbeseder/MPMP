@@ -11,7 +11,7 @@ Output:
 // Every option will have one side less than the root of the numOfMarchers
 // Edge case: both sides are equal to the square root
 fn number_of_options(num_of_marchers: i32) -> i32{
-	let root_of = (num_of_marchers as f32).sqrt().floor() as i64;
+	let root_of = (num_of_marchers as f32).sqrt().floor() as i32;
 
 	let mut count = 0;
 	for i in 1..(root_of+1) {
