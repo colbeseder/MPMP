@@ -6,7 +6,7 @@ I actually originally solved this on paper.
 This script is rather over-engineered for the sake of generality.
 
 Output:
-    Found 4 arrangements of 4 cards with no subsets of 3 cards in ascending or descending order.
+    Found 4 arrangements of 4 cards (out of 24) with no subsets of 3 cards in ascending or descending order.
 
 '''
 
@@ -36,11 +36,11 @@ top_card = 4
 if len(sys.argv) >= 2:
     top_card = int(sys.argv[1])
 
-perms = permutations(range(1, top_card+1))
+perms = list(permutations(range(1, top_card+1)))
+total_perms = len(perms)
 perms_with_no_ordered_subsets = list(filter(lambda perm: not contains_ordered_subset(perm), perms))
 
-print(("Found %s arrangements of %s cards with no subsets"
+print(("Found %s arrangements of %s cards (out of %s) with no subsets"
     + " of %s cards in ascending or descending order.")
-    %(len(perms_with_no_ordered_subsets), top_card, top_card-1))
-
+    %(len(perms_with_no_ordered_subsets), top_card, total_perms, top_card-1))
 #pprint.pprint(perms_with_no_ordered_subsets)
