@@ -10,7 +10,7 @@ Output:
 
 '''
 
-from itertools import permutations
+from itertools import permutations, combinations
 import pprint, sys
 
 def is_ordered_subset(sb):
@@ -25,22 +25,44 @@ def is_ordered_subset(sb):
             ordered_dec = False
     return ordered_asc or ordered_dec
 
-def contains_ordered_subset(perm):
+def build_subset(perm, pick):
+    result = []
     for i in range(len(perm)):
-        if is_ordered_subset(perm[:i] + perm[i+1:]):
+        if i in pick:
+            result.append(perm[i])
+    return result
+
+def contains_ordered_subset(perm, subset_length):
+    picks = list(combinations(range(len(perm)), subset_length))
+    for pick in picks:
+        sb = build_subset(perm, pick)
+        if is_ordered_subset(sb):
             return True
     return False
 
+def count_perms_with_no_ordered_subsets(top_card, subset_length, find_first=False):
+    perms = permutations(range(1, top_card+1))
 
-top_card = 4
-if len(sys.argv) >= 2:
-    top_card = int(sys.argv[1])
+    count = 0
+    for perm in perms:
+        if not contains_ordered_subset(perm, subset_length):
+            count += 1
+            if find_first:
+                break
+    print(("Found %s arrangements of %s cards with no subsets"
+        + " of %s cards in ascending or descending order.")
+        %(count, top_card, subset_length))
+    #pprint.pprint(perms_with_no_ordered_subsets)
+    return count
 
-perms = list(permutations(range(1, top_card+1)))
-total_perms = len(perms)
-perms_with_no_ordered_subsets = list(filter(lambda perm: not contains_ordered_subset(perm), perms))
 
-print(("Found %s arrangements of %s cards (out of %s) with no subsets"
-    + " of %s cards in ascending or descending order.")
-    %(len(perms_with_no_ordered_subsets), top_card, total_perms, top_card-1))
-#pprint.pprint(perms_with_no_ordered_subsets)
+
+if __name__ == "__main__":
+    top_card = 4
+    subset_length = 3
+    if len(sys.argv) >= 2:
+        top_card = int(sys.argv[1])
+    if len(sys.argv) >= 3:
+        subset_length = int(sys.argv[2])
+
+    count_perms_with_no_ordered_subsets(top_card, subset_length, False)
