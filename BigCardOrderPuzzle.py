@@ -1,3 +1,19 @@
+'''
+Solution to the MPMP14: BIG CARD ORDER PUZZLE
+https://www.youtube.com/watch?v=8I1OCqX93XI
+
+Output:
+    Found 0 arrangements of 10 cards with no subsets of 1 cards in ascending or descending order.
+    Found 0 arrangements of 10 cards with no subsets of 2 cards in ascending or descending order.
+    Found 0 arrangements of 10 cards with no subsets of 3 cards in ascending or descending order.
+    Found 0 arrangements of 10 cards with no subsets of 4 cards in ascending or descending order.
+    Found 1 arrangements of 10 cards with no subsets of 5 cards in ascending or descending order.
+
+    All arrangements of 10 cards have an ordered 4 card subset.
+    Done in 361.1527693271637 seconds
+
+'''
+
 from itertools import permutations, combinations
 import pprint, sys, time
 from TheCardOrderPuzzle import *
