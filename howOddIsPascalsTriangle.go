@@ -16,7 +16,6 @@ import "fmt"
 
 var stop =  128
 
-
 func main() {
     var odds = 0
     var total = 0
@@ -24,10 +23,10 @@ func main() {
     // row is the first half of the row (including middle) in binary (0: even, 1: odd)
     var row uint64 = 1
     for i := 0 ; i < stop ; i++ {
-        o, t := count_bits(row, i%2==1)
+        o := count_odds_in_row(row, (i+1)%2)
         odds += o
-        total += t
-        
+        total += i+1
+
         if i%2 == 0 {
             row ^= (row >> 1)
         } else {
@@ -40,19 +39,11 @@ func main() {
 }
 
 
-func count_bits(x uint64, is_odd_row bool) (int, int) {
-    odds  := 0
-    total := 0
-    middle_digit := int(uint64(1) & x)
-    for x > 0 { // Row always starts with 1
-        total += 2
-        odds += 2 * int(x&1)
-        x >>= 1
+func count_odds_in_row(x uint64, is_even_row int) int {
+    m := int(x&1) & is_even_row
+    odds := 0
+    for ; x > 0 ; x >>= 1 { // Row always starts with 1
+        odds += int(x&1)
     }
-    if !is_odd_row {
-        // Fix that middle digit of row was counted twice
-        total -= 1
-        odds -= middle_digit
-    }
-    return odds, total
+    return odds * 2 - m
 }
