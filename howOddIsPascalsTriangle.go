@@ -26,15 +26,17 @@ func main() {
     // row is the first half of the row (including middle) in binary (0: even, 1: odd)
     var row uint64 = 1
     for i := 0 ; i < stop ; i++ {
-        odds = count_odds_in_row(row, (i+1)%2)
+        odds += count_odds_in_row(row, (i+1)%2)
         total += i+1
 
+        // Get next row
         if i%2 == 0 {
             row ^= (row >> 1)
         } else {
             row ^= (row << 1)|(1 & row)
         }
     }
+
     percentage := 100 * float64(odds) / float64(total)
     fmt.Printf("%v %% of numbers are odd in the top %v rows" +
         "of Pascal's Triangle (%v out of %v)\n", percentage, stop, odds, total)
