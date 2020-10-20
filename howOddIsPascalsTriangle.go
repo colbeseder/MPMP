@@ -46,7 +46,7 @@ func main() {
 func count_odds_in_row(x uint64, is_even_row int) int {
     m := int(x&1) & is_even_row
     odds := 0
-    for ; x > 0 ; x >>= 1 { // Row always starts with 1
+    for ; x > 0 ; x >>= 1 {
         odds += int(x&1)
     }
     return odds * 2 - m
