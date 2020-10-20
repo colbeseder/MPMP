@@ -2,7 +2,7 @@
 Solution to MPMP16: HOW ODD IS PASCAL'S TRIANGLE?
 https://www.youtube.com/watch?v=tjJ2qL9uaz4
 
-We'll generate Pascal's Triangle but just 1's & 0's as that's enough to continue the odds && evens.
+We'll generate Pascal's Triangle but just 1's & 0's as that's enough to continue the odds & evens.
 Note (a+b)%2 is equivalent to a^b.
 
 BTW, if you consider the row as a binary number, you can get the next row like this:
