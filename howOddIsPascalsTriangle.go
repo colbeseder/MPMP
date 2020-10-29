@@ -38,7 +38,7 @@ func main() {
     }
 
     percentage := 100 * float64(odds) / float64(total)
-    fmt.Printf("%v %% of numbers are odd in the top %v rows" +
+    fmt.Printf("%v %% of numbers are odd in the top %v rows " +
         "of Pascal's Triangle (%v out of %v)\n", percentage, stop, odds, total)
 }
 
