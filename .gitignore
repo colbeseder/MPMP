@@ -2,3 +2,4 @@
 
 pvt/*
 bin/*
+*.pyc
