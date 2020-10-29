@@ -9,8 +9,8 @@ Output:
 
 from itertools import permutations
 from math import floor
+import sys
 
-CAGES = 10
 
 #enum
 CAT = 0
@@ -22,8 +22,8 @@ def is_good_perm(perm):
             return False
     return True
 
-def num_good_by_dogs(num_dogs):
-    perms = permutations((num_dogs * [DOG]) + ((CAGES - num_dogs) * [CAT]))
+def num_good_by_dogs(num_dogs, cages):
+    perms = permutations((num_dogs * [DOG]) + ((cages - num_dogs) * [CAT]))
     uniques = set()
     for perm in perms:
         if perm in uniques: # for speed
@@ -36,7 +36,11 @@ def num_good_by_cages(cages):
     total = 0
     min = floor(cages/2)
     for dogs in range(min, cages+1):
-        total += num_good_by_dogs(dogs)
+        total += num_good_by_dogs(dogs, cages)
     return total
 
-print("For a row of %s cages, there are %s unique arrangements of animals without putting two cats next to each other."%(CAGES, num_good_by_cages(CAGES)))
+if __name__ == "__main__":
+    cages = 10
+    if len(sys.argv) >= 2:
+        cages = int(sys.argv[1])
+    print("For a row of %s cages, there are %s unique arrangements of animals without putting two cats next to each other."%(cages, num_good_by_cages(cages)))
