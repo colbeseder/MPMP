@@ -15,8 +15,12 @@ import pandas as pd
 
 
 class theCarAndTheDiamond():
-    def alpha(self, s): # Sort string alphabetically and remove doubles
+    alpha_memo = {}
+    def alpha(self, s): # Sort string alphabetically and remove duplicates
+        if s in self.alpha_memo:
+            return self.alpha_memo[s]
         result = re.sub(r"(.)\1", "", ''.join(sorted(s)))
+        self.alpha_memo[s] = result
         return result
 
     def flatten(self, ar):
@@ -30,7 +34,7 @@ class theCarAndTheDiamond():
 
     def apply_rule(self, row, picks, result):
         given = [row[self.prizes.index(pick)] for pick in picks]
-        return self.alpha(self.flatten(given)) == self.alpha(result)
+        return self.alpha(''.join(self.flatten(given))) == self.alpha(result)
 
     def check_answer(self, picks, prizes, target):
         # If all rows match, then answer is good (ie. not rows don't match)
