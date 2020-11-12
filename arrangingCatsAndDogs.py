@@ -1,5 +1,5 @@
 '''
-Solution to the MPMP17: ARRANGING CATS AND DOGS PUZZLE
+Solution to MPMP17: ARRANGING CATS AND DOGS PUZZLE
 https://youtu.be/8gppjTZ1vCE
 
 Output:
