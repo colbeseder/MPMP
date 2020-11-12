@@ -1,5 +1,5 @@
 '''
-Solution to the MPMP14: BIG CARD ORDER PUZZLE
+Solution to MPMP14: BIG CARD ORDER PUZZLE
 https://www.youtube.com/watch?v=8I1OCqX93XI
 
 Output:
