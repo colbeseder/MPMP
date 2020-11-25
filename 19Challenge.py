@@ -3,7 +3,7 @@ MPMP19: The 19 Challenge
 https://youtu.be/tBXGIXEV7tI
 
 Output:
-    The highest 'n' (up to 33860), where the first n primes squared add to a multiple of n is 20597
+    The highest 'n' (up to 49098), where the first n primes squared add to a multiple of n is 20597
 '''
 
 class sumSquareFinder():
