@@ -3,38 +3,27 @@ MPMP19: The 19 Challenge
 https://youtu.be/tBXGIXEV7tI
 
 Output:
-    The highest 'n' (up to 49098), where the first n primes squared add to a multiple of n is 20597
+    Valid values of 'n', where the sum of the first n primes, squared is a multiple of n are:
+    1, 19, 37, 455, 509, 575, 20597, 202717, 202717, 1864637, 
 '''
+def gen_primes():
+    D = {}
+    q = 2
+    while True:
+        if q not in D:
+            yield q
+            D[q * q] = [q]
+        else:
+            for p in D[q]:
+                D.setdefault(p + q, []).append(p)
+            del D[q]
+        q += 1
 
-class sumSquareFinder():
-    def getSumsOfSquares(self, primes):
-        self.sum_sqrs = []
-        for i, p in enumerate(primes):
-            if i == 0:
-                self.sum_sqrs.append(p**2)
-            else:
-                self.sum_sqrs.append((p**2) + self.sum_sqrs[i-1])
-
-    def checkN(self, n):
-        if self.sum_sqrs[n-1] % n == 0:
-            return True
-        return False
-        
-    def findHighest(self):
-        for i in range(len(primes)-1, -1, -1):
-            if self.checkN(i):
-                return i
-        return None
-
-    def __init__(self, primes):
-        self.getSumsOfSquares(primes)
-        
-        
-if __name__ == "__main__":
-    import json
-    with open('resources/primes.json') as f:
-        primes = json.load(f)["primes"]
-
-    finder = sumSquareFinder(primes)
-    highestN = finder.findHighest()
-    print("The highest 'n' (up to %s), where the first n primes squared add to a multiple of n is %s"%(len(primes), highestN))
+primes = gen_primes()
+print("Valid values of 'n', where the sum of the first n primes, squared is a multiple of n are:")
+sum_of_squares = 0
+for i, p in enumerate(primes):
+    n = i+1
+    sum_of_squares += (p**2)
+    if sum_of_squares % n == 0:
+        print(n, end=', ', flush=True)
