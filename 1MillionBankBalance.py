@@ -1,12 +1,11 @@
 '''
-MPMP: The 1 Million Bank Balance puzzle
+MPMP6: The 1 Million Bank Balance puzzle
 https://www.youtube.com/watch?v=ILrqPpLpwpE
 
 
 Output:
     Max: 19 days
     (144, 154)
-
 '''
 
 class Fib():
@@ -37,5 +36,3 @@ for days in range(15, 31):
 
 print("Max: %s days"%max)
 print("(%s, %s)"%(result[0], result[1]))
-print("\nDone!")
-input()
