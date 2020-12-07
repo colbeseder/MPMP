@@ -1,16 +1,22 @@
 # MPMP
 
-Here is my code for solving Matt Parker's Maths Puzzles
+Here is code to solve a subset of Matt Parker's Maths Puzzles
 
-I didn't attempt all of the puzzles. And not all the puzzles I solved were done with code.
-But the ones that were, I dumped the code here without much cleaning.
+Most are in Python, but some were solved using _Rust_, _Golang_, _JavaScipt_ and _Excel_. 
 
-## Season 1 result
+Most of the code is rough and ready, with a priority of submitting the answer early.
+
+## What was your season 1 result?
 
 Final position: **147th**
 
 Highest position: **68th** (after puzzle 17)
 
+## Where are all of the other solutions?
+
+Some I missed.
+Others, I did on paper.
+
 ## Summary
 
-I had fun.
+Thanks to Matt Parker for all the puzzles. I had fun.
