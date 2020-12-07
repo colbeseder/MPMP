@@ -18,6 +18,10 @@ from itertools import permutations, combinations
 import pprint, sys, time
 from TheCardOrderPuzzle import *
 
+print("Quick Puzzle:")
+puzzle14()
+
+print("\nBig Puzzle:")
 start_time = time.time()
 top_card = 10
 starting_subset_length = 1

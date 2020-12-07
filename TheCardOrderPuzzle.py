@@ -55,7 +55,8 @@ def count_perms_with_no_ordered_subsets(top_card, subset_length, find_first=Fals
     #pprint.pprint(perms_with_no_ordered_subsets)
     return count
 
-
+def puzzle14():
+    count_perms_with_no_ordered_subsets(4, 3, False)
 
 if __name__ == "__main__":
     top_card = 4
@@ -64,5 +65,4 @@ if __name__ == "__main__":
         top_card = int(sys.argv[1])
     if len(sys.argv) >= 3:
         subset_length = int(sys.argv[2])
-
-    count_perms_with_no_ordered_subsets(top_card, subset_length, False)
+    count_perms_with_no_ordered_subsets(4, 3, False)
