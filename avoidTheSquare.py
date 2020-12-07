@@ -1,5 +1,5 @@
 '''
-Solution to MPMP: Avoid the Square!
+Solution to MPMP10: Avoid the Square!
 https://www.youtube.com/watch?v=FMQQFbZaQTk
 
 

@@ -1,6 +1,6 @@
 '''
 
-MPMP: SCRABBLE PUZZLE
+MPMP3: SCRABBLE PUZZLE
 https://youtu.be/JaXo_i3ktwM
 
 Find Number of distinct 7 letter scrabble hands that score 46
