@@ -7,7 +7,7 @@ Note (a+b)%2 is equivalent to a^b.
 
 BTW, if you consider the row as a binary number, you can get the next row like this:
     row ^= (row <<1)
-Might be fun to implement in C or Go, using a uint64 for half the synetrical row.
+Might be fun to implement in C or Go, using a uint64 for half the symetrical row.
 
 Output:
     26.489825581395348 % of numbers are odd in the top 128 rows of Pascal's Triangle (2187 out of 8256)
