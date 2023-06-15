@@ -8,7 +8,7 @@ Most of the code is rough and ready, with a priority of submitting the answer ea
 
 ## What was your season 1 result?
 
-Final position: **147th**
+Final position: **147th** (out of 16,892)
 
 Highest position: **68th** (after puzzle 17)
 
